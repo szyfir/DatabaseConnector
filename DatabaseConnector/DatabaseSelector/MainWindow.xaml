@@ -1,0 +1,105 @@
+﻿<Window x:Class="DatabaseSelector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DatabaseSelector"        
+        mc:Ignorable="d"
+        Title="MySQL Connector" Height="800" Width="900" WindowStartupLocation="CenterScreen" Background="White">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.95*"></ColumnDefinition>
+            <ColumnDefinition Width="0.05*"></ColumnDefinition>
+            <ColumnDefinition Width="8*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.95*" ></RowDefinition>
+            <RowDefinition Height="0.05*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+       
+        </Grid.RowDefinitions>
+        <Border Grid.Row="1" Grid.Column="0" Background="Gray"></Border>
+        <Border Grid.Row="1" Grid.Column="1" Background="Gray"></Border>
+        <Border Grid.Row="1" Grid.Column="2" Background="Gray"></Border>
+        <Border Grid.Row="2" Grid.Column="1" Background="Gray"></Border>
+        <Border Grid.Row="3" Grid.Column="1" Background="Gray"></Border>
+        <Border Grid.Row="3" Grid.Column="0" Background="Gray"></Border>
+
+        <Label Grid.Row="0" Grid.Column="2" Margin="10,10,10,5" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Connect with your Database" FontFamily="Agency FB" FontSize="70" Background="Transparent" Foreground="Black"></Label>
+        <Image Source="mysql_image.png" Margin="25" />
+        <DockPanel Background="Gray" Grid.Row="2" Grid.Column="0">
+            <StackPanel>
+                <Button x:Name="bHome" Content="Home" FontFamily="Agency Fb" FontSize="40" Margin="0,10,0,10" Click="bHome_Click"></Button>
+                <Button x:Name="bConnectSet" Content="Settings" FontFamily="Agency Fb" FontSize="40" Margin="0,10,0,10" Click="bConnectSet_Click"></Button>
+                <Button x:Name="bRefresh" Content="Refresh" FontFamily="Agency Fb" FontSize="40" Margin="0,10,0,10" Click="bRefresh_Click"></Button>
+            </StackPanel>
+        </DockPanel>
+        <DockPanel Background="White" Grid.Row="2" Grid.Column="2">
+            <StackPanel>
+                <DataGrid x:Name="dataGrid1" Grid.Column="2" HorizontalAlignment="Left" Margin="25,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="600" Height="261"/>
+                <GroupBox x:Name="gp1" Header="Settings" Grid.Column="2" Grid.Row="2" Margin="25,26" Height="150" Background="White" FontFamily="Agency FB" FontSize="18" Width="580" Visibility="Hidden">
+                    <Grid>
+                        <Label x:Name="lDbSource" Content="Source Name"  Width="50" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,0,0,0" />
+                        <TextBox x:Name="tDbSource" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Margin="35,25,0,0"  TextWrapping="Wrap"  Width="150"/>
+                        
+                        <Label x:Name="lDbPort"  Content="Port" Width="50" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="210,0,0,0"></Label>
+                        <TextBox x:Name="tDbPort"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Margin="210,25,0,0"  TextWrapping="Wrap"  Width="150"/>
+
+                        <Label x:Name="lDbName"  Content="Database Name "  Width="100" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="383,0,0,0"></Label>
+                        <TextBox x:Name="tDbName"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Margin="383,25,0,0"  TextWrapping="Wrap"  Width="150"/>
+
+                        <Label x:Name="lDbUserName"  Content="Username"  Width="150" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,60,0,0"></Label>
+                        <TextBox x:Name="tDbUserName" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Margin="120,85,0,0"  TextWrapping="Wrap"  Width="150"/>
+
+                        <Label x:Name="lDbPassword"  Content="Password" Width="150" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,60,0,0"></Label>
+                        <TextBox x:Name="tDbPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Margin="295,85,0,0"  TextWrapping="Wrap"  Width="150"/>
+
+                    </Grid>
+                </GroupBox>
+                <GroupBox  x:Name="gp2" Header="Query" Grid.Column="2" Grid.Row="2" Margin="25,0" Height="130" Background="White" FontFamily="Agency FB" FontSize="18" Width="580" Visibility="Hidden" >
+                    <Grid>
+                        <Label x:Name="lDbQuery" Content="New Query"  Width="80" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,0,0,0" />
+                        <TextBox x:Name="tDbQuery" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Margin="35,25,0,0"  TextWrapping="Wrap"  Width="500"/>
+                        <Button x:Name="bAccept" Content="Accept"  Height="25" Width="100" Margin="400,70,0,0" Background="LightGray" Click="bAccept_Click"/>
+
+                    </Grid> 
+                </GroupBox>
+            </StackPanel>
+        </DockPanel>
+
+        <Grid x:Name="gr1" Grid.Column="2" Grid.Row="2" Margin="0,190,0,0" Height="220" Width="600" Visibility="Visible">
+            <TextBlock FontFamily="Agency FB" FontSize="25" TextAlignment="Justify" TextWrapping="Wrap" >
+                Welcome in your Database connector!<LineBreak/>
+                Corectly setup communication beetwen app and your MySQL database:<LineBreak/>
+               ---> firstly change communication parameters in "Settings" bookmark<LineBreak/>
+               ---> add new query to display your database on screen<LineBreak/>
+               ---> click refresh<LineBreak/>
+               ---> enjoy!<LineBreak/>
+               <Label Content="@ Copyright Simon" Margin="400,0,0,0"></Label>
+            </TextBlock>
+        </Grid>
+        
+
+      
+            
+ 
+        
+
+
+
+               
+
+      
+                
+       
+
+
+
+
+
+
+
+
+    </Grid>
+</Window>
